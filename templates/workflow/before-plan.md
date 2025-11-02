@@ -64,12 +64,12 @@ Historical record of validated plan steps. Append completed plan validations her
 ./scripts/validate-plan.sh
 ```
 
-- If validation **passes**: 
+- If validation **passes**:
   1. Mark the step as `[x]` in PLAN-BACKLOG.md
   2. Move the step to PLAN-CHANGELOG.md with timestamp and validation notes
   3. Remove the step from PLAN-BACKLOG.md
   4. Continue to create the next step
-- If validation **fails**: 
+- If validation **fails**:
   1. Re-read `PLAN-BACKLOG.md` to see current/pending work
   2. Re-read `workflow/before-plan.md` (this file)
   3. Re-read `DESIGN.md` and `ROADMAP.md`

@@ -57,11 +57,11 @@ research/
 
 - "Research `<problem>`"
 - "What are the options for `<problem>`?"
-  * Short form: "offer options for `<problem>`?"
+  - Short form: "offer options for `<problem>`?"
 - "What are the variants for `<option-id>`?"
-  * Short form: "offer variants for `<option-id>`?"
+  - Short form: "offer variants for `<option-id>`?"
 - "What are the solutions for `<variant-id>`?"
-  * Short form: "offer solutions for `<variant-id>`?"
+  - Short form: "offer solutions for `<variant-id>`?"
 
 ## Typical LLM Output
 

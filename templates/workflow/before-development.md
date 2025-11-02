@@ -78,7 +78,7 @@ Create a `DEV-JOURNAL.md` file for session notes:
 
 ## Step 3: Create Development Dockerfile
 
-Create a `development/Dockerfile.dev` file for the development environment. 
+Create a `development/Dockerfile.dev` file for the development environment.
 It should be used to run all commands inside the development container.
 
 ## Step 4: Development Loop
