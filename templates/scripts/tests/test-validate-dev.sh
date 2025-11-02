@@ -212,5 +212,119 @@ EOF
 assert_output_contains "'$VALIDATE_DEV'" "DEVELOPMENT VALIDATION PASSED" "Displays success message"
 cleanup_test_env
 
+# Test 16: Should warn when not on development branch
+setup_test_env
+git init -q
+git config user.email "test@example.com"
+git config user.name "Test User"
+cat > DEV-BACKLOG.md << 'EOF'
+- [ ] Task 1
+EOF
+cat > DEV-JOURNAL.md << 'EOF'
+## 2024-10-19 10:00
+Work
+EOF
+assert_output_contains "'$VALIDATE_DEV'" "Not on 'development' branch" "Warns when not on development branch"
+cleanup_test_env
+
+# Test 17: Should warn when Dockerfile.dev is missing
+setup_test_env
+mkdir development
+cat > DEV-BACKLOG.md << 'EOF'
+- [ ] Task 1
+EOF
+cat > DEV-JOURNAL.md << 'EOF'
+## 2024-10-19 10:00
+Work
+EOF
+assert_output_contains "'$VALIDATE_DEV'" "Dockerfile.dev not found" "Warns when Dockerfile.dev is missing"
+cleanup_test_env
+
+# Test 18: Should detect ← NOW marker
+setup_test_env
+cat > DEV-BACKLOG.md << 'EOF'
+- [ ] Task 1 ← CURRENT
+  - [ ] Subtask 1.1 ← NOW
+EOF
+cat > DEV-JOURNAL.md << 'EOF'
+## 2024-10-19 10:00
+Work
+EOF
+assert_output_contains "'$VALIDATE_DEV'" "Found ← NOW marker" "Detects ← NOW marker in backlog"
+cleanup_test_env
+
+# Test 19: Should warn about missing ← NOW when CURRENT exists
+setup_test_env
+cat > DEV-BACKLOG.md << 'EOF'
+- [ ] Task 1 ← CURRENT
+  - [ ] Subtask 1.1
+EOF
+cat > DEV-JOURNAL.md << 'EOF'
+## 2024-10-19 10:00
+Work
+EOF
+assert_output_contains "'$VALIDATE_DEV'" "No '← NOW' marker found" "Warns about missing ← NOW when CURRENT exists"
+cleanup_test_env
+
+# Test 20: Should detect dev(step-X) commit format
+setup_test_env
+git init -q
+git config user.email "test@example.com"
+git config user.name "Test User"
+mkdir development
+cat > DEV-BACKLOG.md << 'EOF'
+- [ ] Task 1
+EOF
+cat > DEV-JOURNAL.md << 'EOF'
+## 2024-10-19 10:00
+Work
+EOF
+echo "test" > development/test.txt
+git add development/
+git commit -m "dev(step-1): initial setup" -q
+assert_output_contains "'$VALIDATE_DEV'" "Found 1 'dev(step-X)' commit" "Detects dev(step-X) commit format"
+cleanup_test_env
+
+# Test 21: Should display recent dev commits
+setup_test_env
+git init -q
+git config user.email "test@example.com"
+git config user.name "Test User"
+mkdir development
+cat > DEV-BACKLOG.md << 'EOF'
+- [ ] Task 1
+EOF
+cat > DEV-JOURNAL.md << 'EOF'
+## 2024-10-19 10:00
+Work
+EOF
+echo "test1" > development/test1.txt
+git add development/
+git commit -m "dev(step-1): task 1" -q
+echo "test2" > development/test2.txt
+git add development/
+git commit -m "dev(step-1): task 2" -q
+assert_output_contains "'$VALIDATE_DEV'" "Recent dev commits:" "Displays recent dev commits"
+cleanup_test_env
+
+# Test 22: Should warn about uncommitted changes
+setup_test_env
+git init -q
+git config user.email "test@example.com"
+git config user.name "Test User"
+mkdir development
+cat > DEV-BACKLOG.md << 'EOF'
+- [ ] Task 1
+EOF
+cat > DEV-JOURNAL.md << 'EOF'
+## 2024-10-19 10:00
+Work
+EOF
+echo "uncommitted" > development/uncommitted.txt
+git add DEV-BACKLOG.md DEV-JOURNAL.md
+git commit -m "initial" -q
+assert_output_contains "'$VALIDATE_DEV'" "uncommitted change" "Warns about uncommitted changes in development/"
+cleanup_test_env
+
 print_test_summary
 

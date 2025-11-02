@@ -197,5 +197,81 @@ EOF
 assert_output_contains "'$VALIDATE_PLAN'" "6 marker" "Counts total sequence markers correctly"
 cleanup_test_env
 
+# Test 12: Should warn when not on planning branch
+setup_test_env
+git init -q
+git config user.email "test@example.com"
+git config user.name "Test User"
+mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 1
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
+cat > plan/01-test.md << 'EOF'
+<!-- seq-id: 1 -->
+<!-- seq-id: 2 -->
+<!-- seq-id: 3 -->
+EOF
+assert_output_contains "'$VALIDATE_PLAN'" "Not on 'planning' branch" "Warns when not on planning branch"
+cleanup_test_env
+
+# Test 13: Should warn about filename format
+setup_test_env
+mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 1
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
+cat > plan/test.md << 'EOF'
+<!-- seq-id: 1 -->
+<!-- seq-id: 2 -->
+<!-- seq-id: 3 -->
+EOF
+assert_output_contains "'$VALIDATE_PLAN'" "should be prefixed with 2-digit step number" "Warns about incorrect filename format"
+cleanup_test_env
+
+# Test 14: Should pass with more than 3 markers
+setup_test_env
+mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 1
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
+cat > plan/01-test.md << 'EOF'
+<!-- seq-id: 1 -->
+Content
+<!-- seq-id: 2 -->
+More
+<!-- seq-id: 3 -->
+Even more
+<!-- seq-id: 4 -->
+EOF
+assert_success "'$VALIDATE_PLAN'" "Passes with 4 markers (with warning)"
+cleanup_test_env
+
+# Test 15: Should count validated steps in PLAN-CHANGELOG
+setup_test_env
+mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 2
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+- [x] Step 1 - 2024-11-02 10:00
+EOF
+cat > plan/01-test.md << 'EOF'
+<!-- seq-id: 1 -->
+<!-- seq-id: 2 -->
+<!-- seq-id: 3 -->
+EOF
+assert_output_contains "'$VALIDATE_PLAN'" "In CHANGELOG: 1 validated" "Counts validated steps in PLAN-CHANGELOG"
+cleanup_test_env
+
 print_test_summary
 
