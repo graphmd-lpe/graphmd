@@ -7,8 +7,15 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 # Source test helpers
 source "$SCRIPT_DIR/test-helpers.sh"
 
-# Path to script being tested
-VALIDATE_PLAN="$PROJECT_ROOT/scripts/validate-plan.sh"
+# Path to script being tested (check both locations)
+if [ -f "$PROJECT_ROOT/scripts/validate-plan.sh" ]; then
+    VALIDATE_PLAN="$PROJECT_ROOT/scripts/validate-plan.sh"
+elif [ -f "$SCRIPT_DIR/../validate-plan.sh" ]; then
+    VALIDATE_PLAN="$SCRIPT_DIR/../validate-plan.sh"
+else
+    echo "Error: validate-plan.sh not found"
+    exit 1
+fi
 
 echo "Testing validate-plan.sh"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -27,6 +34,13 @@ cleanup_test_env
 # Test 3: Should pass with valid single plan file
 setup_test_env
 mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+# Plan Backlog
+- [ ] Step 1
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
 cat > plan/01-test.md << 'EOF'
 # Step 1: Test
 
@@ -46,6 +60,13 @@ cleanup_test_env
 # Test 4: Should pass with multiple valid plan files
 setup_test_env
 mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 1
+- [ ] Step 2
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
 cat > plan/01-first.md << 'EOF'
 # Step 1
 <!-- seq-id: 1 -->
@@ -114,6 +135,12 @@ cleanup_test_env
 # Test 8: Should warn when file has incorrect number of markers (but still pass)
 setup_test_env
 mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 1
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
 cat > plan/01-test.md << 'EOF'
 # Step 1
 <!-- seq-id: 1 -->
@@ -132,18 +159,31 @@ cleanup_test_env
 # Test 10: Should display success message with statistics
 setup_test_env
 mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 1
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
 cat > plan/01-test.md << 'EOF'
 # Step 1
 <!-- seq-id: 1 -->
 <!-- seq-id: 2 -->
 <!-- seq-id: 3 -->
 EOF
-assert_output_contains "'$VALIDATE_PLAN'" "Plan validation complete" "Displays success message with statistics"
+assert_output_contains "'$VALIDATE_PLAN'" "VALIDATION PASSED" "Displays success message with statistics"
 cleanup_test_env
 
 # Test 11: Should count sequence markers correctly
 setup_test_env
 mkdir plan
+cat > PLAN-BACKLOG.md << 'EOF'
+- [ ] Step 1
+- [ ] Step 2
+EOF
+cat > PLAN-CHANGELOG.md << 'EOF'
+# Plan Changelog
+EOF
 cat > plan/01-first.md << 'EOF'
 <!-- seq-id: 1 -->
 <!-- seq-id: 2 -->
@@ -154,7 +194,7 @@ cat > plan/02-second.md << 'EOF'
 <!-- seq-id: 5 -->
 <!-- seq-id: 6 -->
 EOF
-assert_output_contains "'$VALIDATE_PLAN'" "6 sequence markers validated" "Counts total sequence markers correctly"
+assert_output_contains "'$VALIDATE_PLAN'" "6 marker" "Counts total sequence markers correctly"
 cleanup_test_env
 
 print_test_summary

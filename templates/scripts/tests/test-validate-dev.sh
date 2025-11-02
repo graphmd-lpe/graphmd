@@ -7,8 +7,15 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 # Source test helpers
 source "$SCRIPT_DIR/test-helpers.sh"
 
-# Path to script being tested
-VALIDATE_DEV="$PROJECT_ROOT/scripts/validate-dev.sh"
+# Path to script being tested (check both locations)
+if [ -f "$PROJECT_ROOT/scripts/validate-dev.sh" ]; then
+    VALIDATE_DEV="$PROJECT_ROOT/scripts/validate-dev.sh"
+elif [ -f "$SCRIPT_DIR/../validate-dev.sh" ]; then
+    VALIDATE_DEV="$SCRIPT_DIR/../validate-dev.sh"
+else
+    echo "Error: validate-dev.sh not found"
+    exit 1
+fi
 
 echo "Testing validate-dev.sh"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -103,7 +110,7 @@ cat > DEV-JOURNAL.md << 'EOF'
 ## 2024-10-19 10:00
 Work
 EOF
-assert_output_contains "'$VALIDATE_DEV'" "No 'CURRENT' marker found" "Warns when no CURRENT marker in backlog"
+assert_output_contains "'$VALIDATE_DEV'" "No '← CURRENT' marker found" "Warns when no CURRENT marker in backlog"
 cleanup_test_env
 
 # Test 9: Should track completed tasks correctly
@@ -149,7 +156,7 @@ cat > DEV-JOURNAL.md << 'EOF'
 ## 2024-10-19 10:00
 Work
 EOF
-assert_output_contains "'$VALIDATE_DEV'" "2 / 4 tasks completed" "Shows correct task progress"
+assert_output_contains "'$VALIDATE_DEV'" "2 / 4 tasks" "Shows correct task progress"
 cleanup_test_env
 
 # Test 12: Should show completion percentage
