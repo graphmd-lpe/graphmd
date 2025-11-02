@@ -9,8 +9,8 @@
 
 2. **Manual review:**
    - All steps have been validated and moved to PLAN-CHANGELOG.md
-   - PLAN-BACKLOG.md is empty or only has any remaining steps marked `[x]`
-   - All steps are numbered sequentially
+   - PLAN-BACKLOG.md is empty (all completed steps moved to PLAN-CHANGELOG.md)
+   - All plan files in `plan/` directory are numbered sequentially
    - Tasks are detailed and reproducible
    - Someone else could follow the plan end-to-end
 
