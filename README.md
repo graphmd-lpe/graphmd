@@ -263,22 +263,23 @@ gitGraph
 🔬 **Active development:** Research and design for GraphMD v0.2 are underway, incorporating lessons learned from v0.1 and exploring advanced features.
 
 🌐 **GraphMD ecosystem vision (planned):** See [ECOSYSTEM.md](ECOSYSTEM.md) for details.
-* Markdown toolkit
-  * Markdown validation
-  * Markdown generation
-  * Markdown quality assurance
-  * Markdown refactoring
-  * Markdown encyclopedia
-* Documentation toolkit
-  * Documentation generation
-  * Documentation publishing
-* Sandbox for executing Agent actions and Markdown fenced code blocks
-* Domain-specific language for prompts
-* Artifact analysis toolkit
-* Agent workflow orchestration toolkit
-* Agent crew management and orchestration toolkit
-* Knowledge graph toolkit (RDF, OWL, etc.)
-* Enhanced literate programming tools
+
+- Markdown toolkit
+  - Markdown validation
+  - Markdown generation
+  - Markdown quality assurance
+  - Markdown refactoring
+  - Markdown encyclopedia
+- Documentation toolkit
+  - Documentation generation
+  - Documentation publishing
+- Sandbox for executing Agent actions and Markdown fenced code blocks
+- Domain-specific language for prompts
+- Artifact analysis toolkit
+- Agent workflow orchestration toolkit
+- Agent crew management and orchestration toolkit
+- Knowledge graph toolkit (RDF, OWL, etc.)
+- Enhanced literate programming tools
 
 The current version serves as a solid foundation for AI-driven development workflows while building toward a comprehensive ecosystem for executable knowledge graphs.
 

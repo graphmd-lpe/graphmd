@@ -4,7 +4,7 @@
 
 Here's the truth: 99% of "AI" content today is marketing noise. LLMs aren't magical thinking machines—they're sophisticated statistical models for generating text patterns. And that's okay. The problem isn't what LLMs are; it's how we're using them.
 
-We've been treating LLMs like magic wands, hoping they'll deliver production-ready code with a single prompt. Then we act surprised when the results are inconsistent, unreproducible, and require extensive revision. 
+We've been treating LLMs like magic wands, hoping they'll deliver production-ready code with a single prompt. Then we act surprised when the results are inconsistent, unreproducible, and require extensive revision.
 
 **What if we formalized the process instead?**
 
@@ -162,4 +162,3 @@ Research for v0.2 is already underway, incorporating lessons learned and explori
 ---
 
 *Special note: This project is licensed under MIT-0 and CC0-1.0. Use it freely, build upon it, and share what you create.*
-

@@ -40,4 +40,3 @@ When moving completed steps from DEV-BACKLOG.md to here:
 3. Mark all subtasks with [x]
 4. Add relevant notes, decisions, or learnings
 5. Separate each step with `---`
-

@@ -56,5 +56,3 @@ See [templates/workflow/before-roadmap.md](templates/workflow/before-roadmap.md)
 - [PROJECT-STRUCTURE.md](PROJECT-STRUCTURE.md) — Repository layout and generated files
 - [templates/workflow/before-roadmap.md](templates/workflow/before-roadmap.md) — Roadmap phase start instructions
 - [templates/workflow/after-roadmap.md](templates/workflow/after-roadmap.md) — Roadmap completion checklist
-
-

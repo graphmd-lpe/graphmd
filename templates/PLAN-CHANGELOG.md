@@ -42,4 +42,3 @@ When moving validated steps from PLAN-BACKLOG.md to here:
 3. List validation results (structure, markers, content, formatting)
 4. Add any relevant notes or observations
 5. Separate each step with `---`
-

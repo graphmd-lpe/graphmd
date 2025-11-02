@@ -115,5 +115,3 @@ flowchart LR
 - `README.md` — Overview, workflow, and project status
 - `GLOSSARY.md` — Definitions of core concepts and ecosystem components
 - `templates/` — Scripts and workflow templates used throughout the ecosystem
-
-

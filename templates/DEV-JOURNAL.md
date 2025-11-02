@@ -94,4 +94,3 @@ When context refreshes, add entry like:
 - Important files: [list]
 
 **Continuing with:** [next task]
-

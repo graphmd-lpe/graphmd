@@ -33,4 +33,3 @@ Track current and pending plan creation work. Move validated steps to PLAN-CHANG
 - Historical record lives in PLAN-CHANGELOG.md
 - Unchecked items need to be re-read on validation failure
 - Validated items are in PLAN-CHANGELOG.md and don't need re-reading
-
