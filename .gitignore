@@ -18,6 +18,7 @@ Thumbs.db
 .history/
 .cursor/
 
-# Vale cache
-.vale/styles/
-!.vale/styles/config/
+# Vale downloaded styles (keep config/)
+.vale/styles/Google/
+.vale/styles/Microsoft/
+.vale/styles/write-good/
