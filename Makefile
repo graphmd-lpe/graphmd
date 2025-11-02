@@ -54,7 +54,7 @@ lint-vale:
 
 lint-markdown:
 	@echo "Running markdownlint..."
-	@markdownlint README.md templates/scripts/tests/README.md
+	@markdownlint '**/*.md' --ignore node_modules --ignore .vale
 
 # Validation targets
 validate-plan:
