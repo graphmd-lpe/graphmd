@@ -1,0 +1,23 @@
+# GraphMD Project
+# These files are created during the workflow and shouldn't be committed to templates
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.history/
+.cursor/
+
+# Vale cache
+.vale/styles/
+!.vale/styles/config/

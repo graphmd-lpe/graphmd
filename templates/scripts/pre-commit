@@ -1,0 +1,21 @@
+#!/bin/bash
+# Pre-commit hook to validate plan files
+
+# Check if any plan files or PLAN-BACKLOG.md or PLAN-CHANGELOG.md are being committed
+if git diff --cached --name-only | grep -qE "^(plan/.*\.md|PLAN-BACKLOG\.md|PLAN-CHANGELOG\.md)$"; then
+    echo "Plan files detected, running validation..."
+    
+    # Run the validation script
+    if ! ./scripts/validate-plan.sh; then
+        echo ""
+        echo "❌ Plan validation failed!"
+        echo "Please fix the plan files before committing."
+        echo "To bypass this check (not recommended), use: git commit --no-verify"
+        exit 1
+    fi
+    
+    echo "✅ Plan validation passed!"
+fi
+
+exit 0
+
