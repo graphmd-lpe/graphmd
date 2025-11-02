@@ -108,7 +108,7 @@ Starting a new LLM conversation context for Planning and Development phases to p
 Using independent prompt sessions for different phases to ensure fresh LLM context and prevent mixing concerns.
 
 ### Context Refresh
-When an LLM session loses context, immediately run validation scripts, read backlog/changelog/journal files, and review workflow instructions to restore context.
+When an LLM session loses context, the context tracking state machine immediately runs validation scripts, it forces the Agent to read backlog/changelog/journal files, and review workflow instructions to restore context.
 
 ## Ecosystem Components
 

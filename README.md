@@ -1,7 +1,5 @@
 # GraphMD — Literate Programming Environment for Markdown-Based Executable Knowledge Graphs
 
-IMPORTANT: Project in research and design phase. Drafts only. 
-
 [![License: MIT-0](https://img.shields.io/badge/License-MIT0-yellow.svg)](LICENSES/MIT-0.txt)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0-yellow.svg)](LICENSES/CC0-1.0.txt)
 [![Version](https://img.shields.io/badge/version-0.1-blue.svg)](https://github.com/graphmd-lpe/graphmd)
