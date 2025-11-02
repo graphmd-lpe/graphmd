@@ -96,7 +96,7 @@ cd /path/to/project
 git init
 
 # Add the templates to the repository
-git add templates/ scripts/
+git add workflow/ scripts/
 
 # Create the initial commit
 git commit -m "graphmd: add workflow templates and validation scripts"
