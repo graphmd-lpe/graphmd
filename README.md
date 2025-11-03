@@ -303,6 +303,10 @@ See `scripts/emergency/RESTORE.md` for detailed usage instructions.
 
 - Artem Kulyabin ([@artbin](https://github.com/artbin))
 
+## 🔗 Related Projects
+
+- [**Pyralog**](https://github.com/pyralog/pyralog) - Platform for Secure, Parallel, Distributed, and Decentralized Computing. A high-performance distributed log and database system built in Rust, featuring cryptographic verification, multi-model queries, and post-quantum security. GraphMD emerged as a byproduct of Pyralog development to formalize the AI-assisted development workflow.
+
 ## 📄 License
 
 This project is licensed under the MIT-0 and CC0-1.0 licenses - see the [LICENSE](LICENSE) file for details.
