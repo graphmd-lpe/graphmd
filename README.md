@@ -262,6 +262,10 @@ gitGraph
 
 🔬 **Active development:** Research and design for GraphMD v0.2 are underway, incorporating lessons learned from v0.1 and exploring advanced features.
 
+📝 **Read the announcement:** [Introducing GraphMD on Medium](https://medium.com/@mail_36332/introducing-graphmd-turning-markdown-documents-into-executable-knowledge-graphs-6925d936423f)
+
+🔬 **Research ideas:** See [RESEARCH.md](RESEARCH.md) for experimental features including LLM context visualization, knowledge graphs, and domain modeling with Mermaid diagrams.
+
 🌐 **GraphMD ecosystem vision (planned):** See [ECOSYSTEM.md](ECOSYSTEM.md) for details.
 
 - Markdown toolkit
