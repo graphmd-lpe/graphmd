@@ -146,6 +146,31 @@ We treat LLMs as sophisticated autocomplete—powerful template generators that 
 
 **The result?** Safe, verifiable, reproducible AI-assisted development that keeps humans firmly in control.
 
+### We're Fighting AGI Development
+
+GraphMD isn't just skeptical of AGI—**we're actively fighting against attempts to create it.**
+
+**Why we fight:**
+
+The AGI pursuit is dangerous on multiple fronts:
+- Companies racing toward uncontrollable systems while promising "safety"
+- Billions of dollars wasted on impossible technical approaches
+- "The AI decided" becoming an excuse to avoid human accountability
+- Resources diverted from solving real problems people face today
+
+**How GraphMD fights back:**
+
+GraphMD serves as a **working counter-example** to AGI ideology:
+
+1. **Proof of concept** - We demonstrate that effective AI assistance doesn't require AGI, autonomous agents, or "thinking machines"
+2. **Technical alternative** - Formal verification (Pruf) and structured workflows prove there's a better way
+3. **Ethical model** - Complete transparency and human accountability at every step
+4. **Practical results** - Solving real development problems today, not promising future miracles
+
+**The battle is real:** Every project that adopts GraphMD's structured, verifiable approach is a rejection of the AGI fantasy. Every formal proof we write is evidence that constraints work better than autonomy. Every validated workflow is proof that human oversight makes systems better, not worse.
+
+**Join the resistance:** Build with GraphMD. Demand verification. Keep humans in control. Choose practical tools over AGI hype.
+
 ## Why This Matters
 
 We're at an inflection point with AI-assisted development. The technology is powerful, but the methodology is still ad-hoc. Developers are copy-pasting prompts, manually tracking context, and struggling to make LLM-generated code reproducible and reviewable.

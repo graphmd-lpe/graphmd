@@ -35,6 +35,28 @@ This project attempts to formalize the process of using `LLM`s as template gener
 
 **Our approach:** Treat LLMs as sophisticated autocomplete, not artificial minds. Use them within formal structures that guarantee human oversight, validation, and control.
 
+### ⚔️ Fighting AGI Development
+
+**GraphMD doesn't just reject AGI—we actively fight against attempts to create it.**
+
+The pursuit of Artificial General Intelligence is:
+- **Technically misguided** - Current approaches won't achieve general intelligence
+- **Dangerously irresponsible** - Racing toward uncontrollable systems
+- **Socially harmful** - Diverting resources from solving real problems
+- **Intellectually dishonest** - Marketing fantasies sold as scientific progress
+
+**How GraphMD fights back:**
+
+1. **Proving the alternative works** - Demonstrating that structured, verifiable AI assistance is more practical and safer than AGI fantasies
+2. **Building constraints** - Creating formal verification systems (Pruf) that prevent uncontrolled AI behavior
+3. **Enforcing human control** - Designing workflows where humans must validate every step
+4. **Exposing the hype** - Showing that LLMs are statistical models, not minds
+5. **Focusing on reality** - Solving actual development problems instead of chasing sci-fi dreams
+
+**GraphMD proves you don't need AGI for effective AI assistance.** You need structure, verification, and human oversight.
+
+**Join the fight:** Use GraphMD. Build tools that keep humans in control. Reject autonomous agents. Demand verification. Choose practical solutions over AGI hype.
+
 **Author:** Artem Kulyabin
 
 ## 📖 Overview
