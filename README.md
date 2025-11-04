@@ -10,8 +10,30 @@
 2. The backbone of what is called `AI` is just optimized statistical models.
 3. An `LLM` is a statistical model for generating templates, trained on large text datasets.
 4. You should review hard the output of any `LLM` before using it.
+5. **GraphMD is anti-AGI.** We don't believe in or pursue Artificial General Intelligence. Instead, we focus on practical, verifiable, human-supervised AI assistance.
 
 This project attempts to formalize the process of using `LLM`s as template generators in a reliable, reproducible, and reviewable way.
+
+### 🎯 Anti-AGI Positioning
+
+**GraphMD explicitly rejects the AGI narrative.**
+
+- ❌ **Not pursuing AGI** - We don't believe current approaches lead to general intelligence
+- ❌ **Not autonomous agents** - Humans must always be in control
+- ❌ **Not "thinking machines"** - LLMs are statistical pattern generators, not minds
+- ✅ **Human-supervised assistance** - AI as a tool, not a replacement
+- ✅ **Verifiable workflows** - Every step reviewed and validated
+- ✅ **Reproducible processes** - Documented, testable, auditable
+- ✅ **Mathematical rigor** - Formal verification over blind trust
+
+**Why anti-AGI matters:**
+1. **Safety** - Structured workflows prevent runaway automation
+2. **Accountability** - Humans responsible for all decisions
+3. **Quality** - Review and validation ensure correctness
+4. **Honesty** - We don't promise what we can't deliver
+5. **Focus** - Build practical tools, not science fiction
+
+**Our approach:** Treat LLMs as sophisticated autocomplete, not artificial minds. Use them within formal structures that guarantee human oversight, validation, and control.
 
 **Author:** Artem Kulyabin
 

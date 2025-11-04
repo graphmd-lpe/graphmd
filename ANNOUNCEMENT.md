@@ -120,6 +120,32 @@ Version 0.1 establishes the foundation—the workflow, templates, validation scr
 
 The goal is a comprehensive ecosystem where Markdown documents become first-class executable artifacts in software development.
 
+## Why GraphMD Is Anti-AGI
+
+**Let's be clear: GraphMD explicitly rejects the AGI (Artificial General Intelligence) narrative.**
+
+We don't believe LLMs are on a path to "thinking machines" or "artificial minds." We don't pursue autonomous agents that operate without human oversight. And we certainly don't buy into the hype that current AI will somehow achieve consciousness or general intelligence.
+
+**What we believe:**
+
+- **LLMs are tools, not minds** - Sophisticated statistical models for pattern generation, nothing more
+- **Humans must always be in control** - Every decision reviewed, every step validated
+- **Structure over autonomy** - Formal workflows prevent runaway automation
+- **Verification over trust** - Mathematical proofs, not blind faith in AI outputs
+- **Practicality over hype** - Build useful tools, not science fiction
+
+**This anti-AGI stance shapes everything in GraphMD:**
+
+1. **Mandatory validation checkpoints** - AI can't skip human review
+2. **Context tracking enforcement** - No hidden state, everything documented
+3. **Git-based provenance** - Complete audit trail of all AI actions
+4. **Formal verification (Pruf)** - Mathematical proofs of workflow correctness
+5. **Human-readable artifacts** - Markdown as primary, not code generated in the dark
+
+We treat LLMs as sophisticated autocomplete—powerful template generators that need clear instructions, structured context, and constant validation. They're valuable tools within formal constraints, not autonomous entities.
+
+**The result?** Safe, verifiable, reproducible AI-assisted development that keeps humans firmly in control.
+
 ## Why This Matters
 
 We're at an inflection point with AI-assisted development. The technology is powerful, but the methodology is still ad-hoc. Developers are copy-pasting prompts, manually tracking context, and struggling to make LLM-generated code reproducible and reviewable.
