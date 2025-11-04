@@ -312,6 +312,8 @@ gitGraph
 
 🎯 **Pruf - Formal Verification:** See [PRUF.md](PRUF.md) for the specification of Pruf, a formal verification DSL for mathematically proving GraphMD workflow correctness.
 
+😈 **Why anti-AGI matters (with dark humor):** See [FUN.md](FUN.md) for absurd scenarios like nuclear warfare workflows that prove why human oversight isn't a limitation—it's the safety mechanism.
+
 🌐 **GraphMD ecosystem vision (planned):** See [ECOSYSTEM.md](ECOSYSTEM.md) for details.
 
 - Markdown toolkit
