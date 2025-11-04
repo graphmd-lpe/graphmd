@@ -104,9 +104,9 @@ graph LR
     O3 -->|M3| O4
     
     subgraph "Category Laws"
-        L1[Identity: id ∘ f = f]
-        L2[Associativity: f ∘ g ∘ h = f ∘ (g ∘ h)]
-        L3[Composition: g ∘ f]
+        L1["Identity: id · f = f"]
+        L2["Associativity: (f · g) · h = f · (g · h)"]
+        L3["Composition: g · f"]
     end
 ```
 
