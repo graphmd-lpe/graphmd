@@ -5,6 +5,7 @@ This document contains research ideas and experimental features for future Graph
 **Links:**
 - [← Back to README](README.md)
 - [Read the Announcement on Medium](https://medium.com/@mail_36332/introducing-graphmd-turning-markdown-documents-into-executable-knowledge-graphs-6925d936423f)
+- [**Pruf - Formal Verification Language**](PRUF.md) - Full specification for formal verification DSL
 - [Glossary](GLOSSARY.md)
 - [Ecosystem Vision](ECOSYSTEM.md)
 
@@ -881,9 +882,13 @@ gantt
 
 ## DSL for Formal Verification Based on Sulise
 
+**📖 Full Specification: [PRUF.md](PRUF.md)**
+
 ### Concept
 
-Create a Domain-Specific Language (DSL) for formal verification of GraphMD workflows and AI-assisted development processes, built on [Sulise](https://github.com/pyralog/pyralog/blob/main/BATUTA.md#theoretical-foundation-sulise) - the category theory-based framework from Pyralog's Batuta language.
+**Pruf** (from German "prüfen" - to verify) is a Domain-Specific Language (DSL) for formal verification of GraphMD workflows and AI-assisted development processes, built on [Sulise](https://github.com/pyralog/pyralog/blob/main/BATUTA.md#theoretical-foundation-sulise) - the category theory-based framework from Pyralog's Batuta language.
+
+See [PRUF.md](PRUF.md) for the complete language specification, including syntax, semantics, examples, tooling, and implementation roadmap.
 
 ### Background: What is Sulise?
 

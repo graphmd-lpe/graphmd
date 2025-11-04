@@ -266,6 +266,8 @@ gitGraph
 
 🔬 **Research ideas:** See [RESEARCH.md](RESEARCH.md) for experimental features including LLM context visualization, knowledge graphs, and domain modeling with Mermaid diagrams.
 
+🎯 **Pruf - Formal Verification:** See [PRUF.md](PRUF.md) for the specification of Pruf, a formal verification DSL for mathematically proving GraphMD workflow correctness.
+
 🌐 **GraphMD ecosystem vision (planned):** See [ECOSYSTEM.md](ECOSYSTEM.md) for details.
 
 - Markdown toolkit
