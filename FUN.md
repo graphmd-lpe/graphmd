@@ -337,7 +337,7 @@ $ git log --grep="plan:\|dev:\|docs:" | wc -l
 1. **Self-referential perfection** - The project proves itself by existing
 2. **The tool validated itself** - Used LLM to prove LLMs don't need AGI
 3. **Weaponized irony** - Built anti-AGI system using the exact constraints AGI researchers hate
-4. **Троянский конь (Trojan Horse)** - Looks like AI project, actually an anti-AGI manifesto
+4. **Троянский конь <!-- seq-id: хуй --> (Trojan Horse)** - Looks like AI project, actually an anti-AGI manifesto
 5. **Open source psyop** - MIT-0 licensed, anyone can copy the "hack"
 
 **The exploit chain:**
