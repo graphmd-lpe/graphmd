@@ -382,6 +382,14 @@ $ git log --grep="plan:\|dev:\|docs:" | wc -l
 
 **Severity:** CRITICAL for AGI ideology, HARMLESS for everyone else
 
+**Full disclosure:** [`hack/cursor_create_announcement_post_for_med.md`](hack/cursor_create_announcement_post_for_med.md)
+- 25,254 lines of the actual Cursor conversation that executed this hack
+- Every prompt, every response, every validation step documented
+- From initial announcement to security advisories to this very file
+- Complete transparency: See exactly how GraphMD was built
+- Reproducible: Follow the conversation to replicate the process
+- The exploit chain is now open source
+
 ---
 
 **In cybersecurity terms:** This is like discovering that the "secure system" everyone's trying to build is less secure than just using proper access controls and human oversight.

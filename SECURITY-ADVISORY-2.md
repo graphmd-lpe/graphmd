@@ -232,6 +232,8 @@ Result: System with proven properties
 
 See: https://github.com/graphmd-lpe/graphmd
 
+**Full Exploit Documentation:** [`hack/cursor_create_announcement_post_for_med.md`](hack/cursor_create_announcement_post_for_med.md) - The complete conversation history showing how this exploit was executed in practice. 25,254 lines of structured human-supervised LLM interaction.
+
 **Key Components:**
 1. `templates/PLAN-BACKLOG.md` - Structured task tracking
 2. `scripts/validate-plan.sh` - Validation checkpoint

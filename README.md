@@ -314,6 +314,8 @@ gitGraph
 
 😈 **Why anti-AGI matters (with dark humor):** See [FUN.md](FUN.md) for absurd scenarios like nuclear warfare workflows that prove why human oversight isn't a limitation—it's the safety mechanism.
 
+🏴‍☠️ **The Greatest Hack (full disclosure):** See [`hack/cursor_create_announcement_post_for_med.md`](hack/cursor_create_announcement_post_for_med.md) - the complete 25,254-line Cursor conversation that built this entire project. Every prompt, response, validation step, and meta-joke documented. This is CVE-2025-AGI-BTFO fully disclosed: proof that structured human oversight beats autonomous AGI fantasies.
+
 🌐 **GraphMD ecosystem vision (planned):** See [ECOSYSTEM.md](ECOSYSTEM.md) for details.
 
 - Markdown toolkit

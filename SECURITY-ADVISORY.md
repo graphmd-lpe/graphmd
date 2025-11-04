@@ -50,6 +50,8 @@ ATTACK CHAIN:
 
 **Proof of Concept:** https://github.com/graphmd-lpe/graphmd
 
+**Exploit Chain Fully Documented:** [`hack/cursor_create_announcement_post_for_med.md`](hack/cursor_create_announcement_post_for_med.md) - The complete 25,254-line Cursor conversation that executed this exploit. Every prompt, response, and validation step is preserved for reproducibility.
+
 ---
 
 ## Impact Assessment
