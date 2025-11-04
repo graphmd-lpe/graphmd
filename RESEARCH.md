@@ -13,6 +13,7 @@ This document contains research ideas and experimental features for future Graph
 - [LLM Context Visualization](#llm-context-visualization)
 - [LLM Knowledge Visualization](#llm-knowledge-visualization)
 - [LLM Domain Knowledge Visualization](#llm-domain-knowledge-visualization)
+- [DSL for Formal Verification Based on Sulise](#dsl-for-formal-verification-based-on-sulise)
 
 ---
 
@@ -875,6 +876,404 @@ gantt
 4. Integrate with LLM context loading
 5. Validate domain model consistency
 6. Document domain modeling patterns
+
+---
+
+## DSL for Formal Verification Based on Sulise
+
+### Concept
+
+Create a Domain-Specific Language (DSL) for formal verification of GraphMD workflows and AI-assisted development processes, built on [Sulise](https://github.com/pyralog/pyralog/blob/main/BATUTA.md#theoretical-foundation-sulise) - the category theory-based framework from Pyralog's Batuta language.
+
+### Background: What is Sulise?
+
+Sulise is a mathematical framework that unifies different computational models using category theory. It provides:
+
+- **Categorical semantics** for workflows and data transformations
+- **Formal composition** rules for operations
+- **Type-safe transformations** between different query models
+- **Mathematical proofs** of correctness
+
+### Why Formal Verification for GraphMD?
+
+GraphMD workflows involve:
+1. **Complex state transitions** (planning → development)
+2. **Context tracking** across multiple documents
+3. **Validation checkpoints** that must be verified
+4. **LLM interactions** with potential failure modes
+5. **Git workflow** with branch and commit requirements
+
+**Formal verification ensures:**
+- ✅ Workflows cannot reach invalid states
+- ✅ Context is never lost
+- ✅ Validation rules are always enforced
+- ✅ State transitions are mathematically proven correct
+
+### Use Cases
+
+1. **Workflow Verification**
+   - Prove workflow completeness
+   - Verify state machine correctness
+   - Ensure all paths lead to valid states
+
+2. **Context Integrity**
+   - Prove context is preserved across sessions
+   - Verify tracking document consistency
+   - Ensure validation triggers correctly
+
+3. **Validation Script Correctness**
+   - Prove validation scripts catch all errors
+   - Verify checkpoint enforcement
+   - Ensure no invalid states pass validation
+
+4. **LLM Interaction Safety**
+   - Verify prompt-response contracts
+   - Prove context loading completeness
+   - Ensure error recovery correctness
+
+### Implementation Ideas
+
+#### 1. Workflow State Specification
+
+```mermaid
+graph TD
+    subgraph "Formal Specification"
+        S1[State: Initial]
+        S2[State: Planning]
+        S3[State: Development]
+        S4[State: Complete]
+        
+        S1 -->|init: valid| S2
+        S2 -->|validate: pass| S3
+        S2 -->|validate: fail| S2
+        S3 -->|test: pass| S4
+        S3 -->|test: fail| S3
+    end
+    
+    subgraph "Sulise Proof"
+        P1[Proof: All paths terminate]
+        P2[Proof: No invalid transitions]
+        P3[Proof: Context preserved]
+    end
+    
+    S4 --> P1
+    S2 --> P2
+    S3 --> P3
+```
+
+#### 2. Category Theory Model
+
+```mermaid
+graph LR
+    subgraph "Objects (States)"
+        O1[Initial]
+        O2[Planning]
+        O3[Development]
+        O4[Complete]
+    end
+    
+    subgraph "Morphisms (Transitions)"
+        M1[init]
+        M2[validate]
+        M3[develop]
+        M4[complete]
+    end
+    
+    O1 -->|M1| O2
+    O2 -->|M2| O3
+    O3 -->|M3| O4
+    
+    subgraph "Laws"
+        L1[Identity: id ∘ f = f]
+        L2[Associativity: f ∘ g ∘ h]
+        L3[Composition: g ∘ f]
+    end
+```
+
+#### 3. Verification Specification Example
+
+```clojure
+;; Sulise-based DSL for workflow verification
+
+(defworkflow graphmd-planning
+  "Formal specification of GraphMD planning phase"
+  
+  ;; States
+  (defstate :initial
+    :invariants [(empty? backlog)
+                 (empty? changelog)])
+  
+  (defstate :planning
+    :invariants [(valid-backlog? backlog)
+                 (valid-changelog? changelog)
+                 (sequence-markers-correct? backlog)])
+  
+  (defstate :complete
+    :invariants [(empty? backlog)
+                 (all-validated? changelog)])
+  
+  ;; Transitions
+  (deftransition init [:initial → :planning]
+    :preconditions [(project-initialized?)]
+    :postconditions [(backlog-created?)
+                     (workflow-loaded?)])
+  
+  (deftransition validate [:planning → :planning]
+    :preconditions [(has-pending-steps? backlog)]
+    :postconditions [(or (step-validated? step)
+                         (context-refreshed?))]))
+  
+  ;; Verification goals
+  (prove-termination "All workflows eventually complete")
+  (prove-safety "No invalid states reachable")
+  (prove-liveness "Progress always possible"))
+```
+
+#### 4. Context Tracking Verification
+
+```clojure
+;; Verify three-layer context tracking
+
+(defcontext-system three-layer
+  "Formal model of three-layer context tracking"
+  
+  (deflayer backlog
+    :properties [:current-work :priorities]
+    :invariants [(no-duplicates? :steps)
+                 (valid-sequence? :markers)])
+  
+  (deflayer changelog
+    :properties [:completed :validated]
+    :invariants [(monotonic-increase? :count)
+                 (timestamped? :entries)])
+  
+  (deflayer journal
+    :properties [:decisions :learnings]
+    :invariants [(session-bounded? :entries)])
+  
+  ;; Synchronization proof
+  (prove-sync "Backlog and changelog stay consistent"
+    (∀ [step]
+      (→ (completed? step changelog)
+          (removed? step backlog))))
+  
+  ;; Context preservation proof
+  (prove-preservation "Context never lost"
+    (∀ [session₁ session₂]
+      (→ (follows? session₂ session₁)
+          (⊆ (context session₁)
+             (context session₂))))))
+```
+
+#### 5. Validation State Machine Proof
+
+```clojure
+;; Prove validation state machine correctness
+
+(defstatemachiine validation-loop
+  "Recursive validation with context recovery"
+  
+  (defstate :validate
+    :entry [(check-sequence)
+            (verify-files)
+            (enforce-rules)])
+  
+  (defstate :pass
+    :entry [(update-tracking)])
+  
+  (defstate :fail
+    :entry [(refresh-context)
+            (reload-instructions)])
+  
+  ;; Transitions
+  (transition :validate → :pass
+    :when (all-checks-pass?))
+  
+  (transition :validate → :fail
+    :when (any-check-fails?))
+  
+  (transition :fail → :validate
+    :when (context-restored?))
+  
+  ;; Proofs
+  (prove-termination
+    "Validation loop always terminates"
+    (using :measure (context-refresh-count)
+           :bound 3))
+  
+  (prove-correctness
+    "Invalid states never pass validation"
+    (∀ [state]
+      (→ (invalid? state)
+          (= (validate state) :fail)))))
+```
+
+### Proposed Features
+
+1. **Formal Specification Language**
+   - Write workflow specifications in DSL
+   - Express state invariants and transitions
+   - Define verification goals
+
+2. **Automated Proof Generation**
+   - Generate proofs from specifications
+   - Use SMT solvers for verification
+   - Provide proof certificates
+
+3. **Runtime Verification**
+   - Check invariants at runtime
+   - Detect violations immediately
+   - Generate diagnostic reports
+
+4. **Visual Proof Inspector**
+   - Visualize proof trees
+   - Show proof steps interactively
+   - Debug failed proofs
+
+### Integration with GraphMD
+
+```mermaid
+graph TD
+    subgraph "GraphMD Workflow"
+        W1[Workflow Templates]
+        W2[Validation Scripts]
+        W3[Git Hooks]
+    end
+    
+    subgraph "Sulise Verification"
+        V1[Formal Specs]
+        V2[Proof Engine]
+        V3[Verification Results]
+    end
+    
+    subgraph "Development"
+        D1[Write Specs]
+        D2[Run Verification]
+        D3[Deploy Verified]
+    end
+    
+    W1 --> V1
+    W2 --> V1
+    V1 --> V2
+    V2 --> V3
+    
+    D1 --> V1
+    V3 --> D2
+    V3 --> D3
+```
+
+### Benefits
+
+- **Correctness Guarantees** - Mathematical proofs of workflow correctness
+- **Bug Prevention** - Catch errors before they happen
+- **Documentation** - Formal specs serve as precise documentation
+- **Confidence** - Know your workflows are proven correct
+- **Compliance** - Provide verifiable evidence of correctness
+
+### Example: Prove Planning Phase Correctness
+
+```clojure
+;; Complete formal verification example
+
+(deftheorem planning-phase-correct
+  "Planning phase always produces valid development plan"
+  
+  ;; Hypothesis
+  (assume
+    (initialized? project)
+    (exists? workflow-templates)
+    (exists? validation-scripts))
+  
+  ;; Workflow specification
+  (defworkflow planning
+    (step create-backlog
+      :ensures (exists? PLAN-BACKLOG.md))
+    
+    (step create-steps
+      :invariant (sequence-markers-valid?)
+      :ensures (all-steps-have-sequence?))
+    
+    (step validate-each
+      :requires (exists? step)
+      :ensures (or (validated? step)
+                   (context-refreshed?)))
+    
+    (step move-to-changelog
+      :requires (validated? step)
+      :ensures (in-changelog? step)
+               (not-in-backlog? step)))
+  
+  ;; Theorem statement
+  (prove
+    (→ (completes? planning)
+        (∧ (empty? PLAN-BACKLOG.md)
+           (all-validated? PLAN-CHANGELOG.md)
+           (ready-for? development-phase))))
+  
+  ;; Proof
+  (by-induction steps
+    (base-case empty-backlog)
+    (inductive-step
+      (assume (valid-after-n-steps n))
+      (prove (valid-after-n-steps (+ n 1)))
+      (using validation-loop-correctness))))
+```
+
+### Tooling
+
+```bash
+# Verify workflow specifications
+graphmd verify workflow/
+
+# Check specific theorem
+graphmd verify --theorem planning-phase-correct
+
+# Generate proof visualization
+graphmd verify --visual --output proof.svg
+
+# Runtime verification mode
+graphmd validate --formal --prove-correctness
+```
+
+### Research Questions
+
+1. **Expressiveness**: Can Sulise express all GraphMD workflow properties?
+2. **Decidability**: Are all verification goals decidable?
+3. **Performance**: Can proofs be generated quickly enough?
+4. **Usability**: Can developers write formal specs easily?
+5. **Integration**: How to integrate with existing validation scripts?
+
+### Related Work
+
+- **TLA+** - Temporal logic for distributed systems
+- **Coq/Isabelle** - Proof assistants
+- **Alloy** - Relational logic for models
+- **Why3** - Deductive verification platform
+- **Dafny** - Verification-aware programming language
+
+### Next Steps
+
+1. Study Sulise category theory foundations
+2. Design DSL syntax for GraphMD workflows
+3. Implement proof engine (using SMT solvers)
+4. Create example proofs for validation scripts
+5. Build visual proof inspector
+6. Integrate with GraphMD Makefile
+7. Document verification patterns
+
+### Connection to Batuta
+
+From [Batuta documentation](https://github.com/pyralog/pyralog/blob/main/BATUTA.md), Sulise provides:
+
+> "A universal framework for reasoning about data transformations, queries, and distributed computations using category theory"
+
+GraphMD can leverage Sulise's theoretical foundations to:
+- Formalize workflow semantics
+- Prove validation correctness
+- Verify state machine properties
+- Ensure LLM interaction safety
+
+This brings **mathematical rigor** to AI-assisted development workflows.
 
 ---
 
